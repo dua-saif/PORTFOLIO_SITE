@@ -22,7 +22,9 @@ class Project(models.Model):
     )
     live_link = models.URLField(blank=True, null=True)
     github_link = models.URLField(blank=True, null=True)
+    youtube_link = models.URLField(blank=True, null=True)  # New YouTube field
     status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='live')
+
 
     def tech_tags(self):
         # Split the tech_stack string by commas and strip whitespace
