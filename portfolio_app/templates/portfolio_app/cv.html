@@ -1,0 +1,63 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Dua Saif - CV</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #0f172a;
+      color: #f1f5f9;
+      margin: 0;
+      padding: 40px;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 30px;
+    }
+
+    img.cv-image {
+      max-width: 80%;
+      height: auto;
+      border: 4px solid #facc15;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+      margin-bottom: 40px;
+      background-color: transparent;
+    }
+
+    a.download-btn {
+      display: inline-block;
+      background-color: #22c55e;
+      color: white;
+      padding: 12px 30px;
+      font-weight: bold;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: background-color 0.3s ease;
+    }
+
+    a.download-btn:hover {
+      background-color: #16a34a;
+    }
+
+    .button-group {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Dua Saif - CV</h1>
+
+  <!-- Display CV as Image -->
+  <img src="{% static 'portfolio_app/Images/CV.jpg' %}" alt="Dua Saif CV" class="cv-image" />
+
+  <!-- Download CV Button -->
+  <div class="button-group">
+    <a href="{% static 'portfolio_app/Images/CV.jpg' %}" download="dua_saif_cv.jpg" class="download-btn">Download CV</a>
+  </div>
+</body>
+</html>

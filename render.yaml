@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name:   PORTFOLIO_SITE
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn portfolio_project.wsgi:application
+    envVars:
+      - key: DJANGO_SETTINGS_MODULE
+        value: portfolio_project.settings
+      - key: PYTHON_VERSION
+        value: "3.10"
+      - key: DATABASE_URL
+        value: postgresql://portfolio_db_xtac_user:h9BHAkPOgjNcPdeNoKCKRAQS4x5fg9WT@dpg-d279iap5pdvs73cpsup0-a.frankfurt-postgres.render.com/portfolio_db_xtac
