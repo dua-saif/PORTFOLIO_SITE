@@ -2,12 +2,18 @@ from django.shortcuts import render
 from .models import SiteStatus, Project
 
 def home(request):
+    projects = Project.objects.all()
     status = SiteStatus.objects.first()
-
+    # Gather unique tech tags for filtering
+    all_techs = set()
+    for project in projects:
+        all_techs.update(project.tech_tags())
     # If you want to show projects on home too, fetch from DB here
     # But if not, you can just pass empty list or omit
     return render(request, 'portfolio_app/home.html', {
         'open_to_work': status.open_to_work if status else True,
+        'projects': projects,
+        'all_techs': all_techs,
     })
 
 def projects(request):
