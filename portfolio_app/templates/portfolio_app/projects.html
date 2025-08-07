@@ -89,12 +89,14 @@
 <div class="grid" id="projects-grid">
     {% for project in projects %}
     <div class="project-card" data-techs="{{ project.tech_stack|lower }}">
-        <img src="{{ project.image.url }}" alt="{{ project.title }}" class="project-img" />
+        {% if project.image_url %}
+            <img src="{{ project.image_url }}" alt="{{ project.title }}" class="project-img" />
+        {% endif %}
         <h3>{{ project.title }}</h3>
         <p>{{ project.description }}</p>
         <div class="tech-badges">
-            {% for tag in project.tech_tags %}
-                <span class="tech-badge">{{ tag }}</span>
+            {% for tag in project.tech_stack|split:"," %}
+                <span class="tech-badge">{{ tag|trim }}</span>
             {% endfor %}
         </div>
         <div class="links">
@@ -114,6 +116,7 @@
     </div>
     {% endfor %}
 </div>
+
 
 
 <script>

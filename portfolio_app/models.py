@@ -7,6 +7,8 @@ class SiteStatus(models.Model):
         return "Open to Work" if self.open_to_work else "Not Open to Work"
 
 
+
+
 class Project(models.Model):
     STATUS_CHOICES = [
         ('live', 'Live'),
@@ -14,7 +16,10 @@ class Project(models.Model):
     ]
 
     title = models.CharField(max_length=200)
-    image = models.ImageField(upload_to='projects/')  # Requires Pillow: pip install Pillow
+    image_url = models.URLField(
+        max_length=500,
+        help_text="Paste the URL of the project image (e.g. hosted on Imgur, Cloudinary, etc.)"
+    )
     description = models.TextField()
     tech_stack = models.CharField(
         max_length=300,
@@ -22,8 +27,12 @@ class Project(models.Model):
     )
     live_link = models.URLField(blank=True, null=True)
     github_link = models.URLField(blank=True, null=True)
-    youtube_link = models.URLField(blank=True, null=True)  # New YouTube field
+    youtube_link = models.URLField(blank=True, null=True)
     status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='live')
+
+    def __str__(self):
+        return self.title
+
 
 
     def tech_tags(self):
