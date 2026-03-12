@@ -448,14 +448,14 @@
         <p>I'm Dua Saif, a Computer Science student at Demont Institute of Management Technology with a focus on full-stack web development using Django, HTML, CSS, and JavaScript. I’ve built projects like an auction site, wiki, and email client, and enjoy writing clean code, solving problems, and learning fast. I hold certificates from HarvardX (CS50 Web Programming) and freeCodeCamp (Responsive Design, JavaScript Algorithms). With a strong eye for detail, I'm passionate about building user-friendly applications that solve real-world problems.</p>
       </section>
 
-      <section class="section-box" id="projects">
+   <section class="section-box" id="projects">
   <h2>My Projects</h2>
   <div class="projects-grid">
     {% for project in projects %}
       <div class="project-box">
         <h3>{{ project.title }}</h3>
-        {% if project.image %}
-          <img src="{{ project.image.url }}" alt="{{ project.title }} Screenshot" />
+        {% if project.image_url %}
+          <img src="{{ project.image_url }}" alt="{{ project.title }} Screenshot" />
         {% endif %}
         <p>{{ project.description }}</p>
         {% if project.github_link %}
@@ -473,6 +473,7 @@
     {% endfor %}
   </div>
 </section>
+
 
 
       <div class="side-by-side-container">
